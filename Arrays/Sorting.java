@@ -2,7 +2,8 @@ public class Sorting {
 
     public static void main(String[] args) {
         int[] unsorted = new int[] { 2, 4, 66, 43, 6, 2, 9, 24, 53, 1, 22 };
-        int[] sorted = SelectionSort(unsorted);
+        // int[] sorted = SelectionSort(unsorted);
+        int[] sorted = bubbleSort(unsorted);
         for (int i = 0; i < sorted.length; i++) {
             System.out.print(sorted[i] + " ");
         }
@@ -19,6 +20,20 @@ public class Sorting {
             }
         }
 
+        return array;
+    }
+
+    public static int[] bubbleSort(int[] array) {
+        int len = array.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
         return array;
     }
 }
