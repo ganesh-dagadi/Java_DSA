@@ -3,7 +3,8 @@ public class Sorting {
     public static void main(String[] args) {
         int[] unsorted = new int[] { 2, 4, 66, 43, 6, 2, 9, 24, 53, 1, 22 };
         // int[] sorted = SelectionSort(unsorted);
-        int[] sorted = bubbleSort(unsorted);
+        // int[] sorted = bubbleSort(unsorted);
+        int[] sorted = insertionSort(unsorted);
         for (int i = 0; i < sorted.length; i++) {
             System.out.print(sorted[i] + " ");
         }
@@ -33,6 +34,19 @@ public class Sorting {
                     array[j + 1] = temp;
                 }
             }
+        }
+        return array;
+    }
+
+    public static int[] insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int j = i - 1;
+            while (array[j] > current && j >= 0) {
+                array[j + 1] = array[j];
+                --j;
+            }
+            array[j + 1] = current;
         }
         return array;
     }
